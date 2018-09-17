@@ -1,0 +1,340 @@
+﻿\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tgbonum}
+\usepackage{amsmath}
+\DeclareUnicodeCharacter{2212}{-}
+\usepackage{ragged2e}
+
+\begin{document}
+
+\textbf{2) Determine Inverse of the following matrix given that it is invertible.}
+$$ A = \begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+a_{31} & a_{32} \end{bmatrix}$$
+
+Augmented matrix is :
+$$
+\left[
+\begin{array}{ccc|ccc}
+3 & 0 & 2 & 1 & 0 & 0\\  
+2 & 0 & -2 & 0 & 1 & 0 \\ 
+0 & 1 & 1 & 0 & 0 & 1 \\ 
+\end{array}
+\right]
+$$
+
+$R_{1} = R_{1} - R_{2}$
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 4 & 1 & -1 & 0\\  
+2 & 0 & -2 & 0 & 1 & 0 \\ 
+0 & 1 & 1 & 0 & 0 & 1 \\ 
+\end{array}
+\right]
+$$
+
+$R_{2} = R_{2} - 2R_{2}$
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 4 & 1 & -1 & 0\\  
+0 & 0 & -10 & -2 & 3 & 0 \\ 
+0 & 1 & 1 & 0 & 0 & 1 \\ 
+\end{array}
+\right]
+$$
+
+Swap $R_{2}$ and $R_{3}$
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 4 & 1 & -1 & 0\\  
+0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 0 & -10 & -2 & 3 & 0 \\ 
+\end{array}
+\right]
+$$
+
+$R_{3} = \frac{R_{3}}{10}$
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 4 & 1 & -1 & 0\\  
+0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & \frac{2}{10} & \frac{-3}{10} & 0 \\ 
+\end{array}
+\right]
+$$
+
+$R_{1} = R_{1} - 4R_{3}$
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & \frac{1}{5} & \frac{1}{5} & 0\\  
+0 & 1 & 1 & 0 & 0 & 1 \\
+0 & 0 & 1 & \frac{2}{10} & \frac{-3}{10} & 0 \\ 
+\end{array}
+\right]
+$$
+
+$R_{2} = R_{2} - R_{3}$
+
+$$
+\left[
+\begin{array}{ccc|ccc}
+1 & 0 & 0 & \frac{1}{5} & \frac{1}{5} & 0\\  
+0 & 1 & 0 & -\frac{2}{10} & \frac{3}{10} & 1 \\
+0 & 0 & 1 & \frac{2}{10} & \frac{-3}{10} & 0 \\ 
+\end{array}
+\right]
+$$
+
+\begin{flushright}
+..................................................... 1
+\end{flushright}
+
+from equation 1 we can say $$
+A^{-1}
+= 
+\left[
+\begin{array}{ccc}
+\frac{1}{5} & \frac{1}{5} & 0\\  
+-\frac{2}{10} & \frac{3}{10} & 1 \\
+\frac{2}{10} & \frac{-3}{10} & 0 \\ 
+\end{array}
+\right]
+$$
+
+$\newline$
+\textbf{3) Solve $AX = B$ by LU Decomposition.}
+
+$$ A =
+\begin{bmatrix}
+4 & 3 & -5  \\
+-4 & -5 & 7 \\
+8 & 6 & -8
+\end{bmatrix} 
+B =
+\begin{bmatrix}
+2 \\
+-4 \\ 
+6
+\end{bmatrix}
+$$
+\newline
+\newline
+Step 1) Get find LU by LU decomposition. \newline
+Step 2) Solve $LY = B$ for Y\newline
+Step 3) Solve $UX = Y$ for X 
+
+$\newline$
+Step 1) Convert A to Row Echolen form to get U.
+
+$R_{2} = R_{2} + R_{1}$
+
+$$
+\begin{bmatrix}
+1 & 0 & 0  \\
+1 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+4 & 3 & -5  \\
+-4 & -5 & 7 \\
+8 & 6 & -8
+\end{bmatrix} =
+\begin{bmatrix}
+4 & 3 & -5  \\
+0 & -2 & 2 \\
+8 & 6 & -8
+\end{bmatrix} 
+$$
+
+$\newline$
+$\newline$
+$ Where \begin{bmatrix}
+1 & 0 & 0  \\
+1 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix} = E_{21}$
+\begin{flushright}
+..................................................... 1
+\end{flushright}
+
+$\newline$
+$\newline$
+$R_{3} = R_{3} - 2R_{1}$
+
+$$
+\begin{bmatrix}
+1 & 0 & 0  \\
+0 & 1 & 0 \\
+-2 & 0 & 1
+\end{bmatrix}
+E_{21}
+\begin{bmatrix}
+4 & 3 & -5  \\
+-4 & -5 & 7 \\
+8 & 6 & -8
+\end{bmatrix} =
+\begin{bmatrix}
+4 & 3 & -5  \\
+0 & -2 & 2 \\
+0 & 0 & 2
+\end{bmatrix} 
+$$
+
+$\newline$
+$\newline$
+$ Where \begin{bmatrix}
+1 & 0 & 0  \\
+0 & 1 & 0 \\
+-2 & 0 & 1
+\end{bmatrix} = E_{31}$
+and 
+$\begin{bmatrix}
+4 & 3 & -5  \\
+0 & -2 & 2 \\
+0 & 0 & 2
+\end{bmatrix} = U 
+$
+\begin{flushright}
+..................................................... 2
+\end{flushright}
+$$
+E_{31}
+E_{21}
+A
+= 
+U
+$$
+
+$$
+E_{21}
+A
+= 
+E_{31}^{-1}
+U
+$$
+
+$$
+A
+= 
+E_{21}^{-1}
+E_{31}^{-1}
+U
+$$
+
+$$ \boxed{A = LU} $$
+
+$\newline 
+Where$ $E_{21}^{-1}
+E_{31}^{-1} = L
+$
+
+$$ L = \begin{bmatrix}
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+-2 & 0 & 1
+\end{bmatrix} 
+$$
+\begin{flushright}
+..................................................... 3
+\end{flushright}
+
+Step 2) Solve LY=B for Y
+
+$$\begin{bmatrix}
+1 & 0 & 0 \\
+-1 & 1 & 0 \\
+2 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+Y_{1} \\
+Y_{2} \\
+Y_{3} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+-4 \\
+6 \\
+\end{bmatrix}
+$$
+
+$\newline$
+
+\begin{flushright}
+$Y_{1} = 2$ ....................................................................................... 4
+\end{flushright}
+
+\begin{flushright}
+$-Y_{1} + Y_{2} = -4 \Rightarrow Y_{2} = -2$.............................................................. 5
+\end{flushright}
+
+\begin{flushright}
+$2Y_{1} + Y_{3} = 6 \Rightarrow Y_{3} = 2$.................................................................... 6
+\end{flushright}
+
+From equations 4,5 and 6 $ \begin{bmatrix}
+Y_{1} \\
+Y_{2} \\ 
+Y_{3} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+-2 \\
+2
+\end{bmatrix}
+$
+
+\begin{flushright}
+..................................................... 7
+\end{flushright}
+
+Step 3) Now solve UX = Y for X
+$$
+\begin{bmatrix}
+4 & 3 & -5 \\
+0 & -2 & 2 \\ 
+0 & 0 & 2 \\
+\end{bmatrix}
+\begin{bmatrix}
+X_{1} \\
+X_{2} \\ 
+X_{3} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 \\
+-2 \\ 
+2 \\
+\end{bmatrix}
+$$
+
+By solving this we get 
+$$ X_{1} = \frac{1}{4} $$
+$$ X_{2} = 2 $$
+$$ X_{3} = 1 $$
+
+Hence Solution is : $\begin{bmatrix}
+X_{1} \\
+X_{2} \\
+X_{3} \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{4} \\
+2 \\
+1 \\
+\end{bmatrix}
+$
+\end{document}
