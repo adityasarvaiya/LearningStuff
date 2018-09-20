@@ -1,0 +1,328 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\title{Assignment 6}
+\author{Group 31}
+
+\begin{document}
+\maketitle
+
+\subsection*{}
+\begin{enumerate}[label=\alph*)]
+\item[1.1]
+\[
+A = \begin{bmatrix} 2 & 0 & 0\\-1 & 3 & 3\\6 & -6 & -6 \end{bmatrix}
+\]
+compute eigen values using $|A - $$\lambda$$I| = 0$\\
+Eigen values($\lambda$) = 2, 0, -3\\
+Algebric multicity corresponding to $\lambda$=(2, 0, -3) are 1, 1, 1\\
+Finding Eigen vector for $\lambda_{1}$ = 2 :\\
+$(A-$ $\lambda_{1}$ $I)X_{1} = 0$
+\[
+\begin{bmatrix} 2-2 & 0 & 0\\-1 & 3-2 & 3\\6 & -6 & -6-2\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\end{bmatrix} = 0\]
+reducing to row echelon form
+\[
+\begin{bmatrix} 0 & 0 & 0\\-1 & 1 & 3\\6 & -6 & -8\end{bmatrix}
+\]
+$R_{3}$ $\rightarrow$ $R_{3} + 6R_{2}$
+\[
+\begin{bmatrix} 0 & 0 & 0\\-1 & 1 & 3\\0 & 0 & 10\end{bmatrix}
+\]
+$R_{1}$$\leftrightarrow$$R_{3}$
+\[
+\begin{bmatrix} 0 & 0 & 10\\-1 & 1 & 3\\0 & 0 & 0\end{bmatrix}
+\]
+$R_{1}$$\leftrightarrow$$R_{2}$
+\[
+\begin{bmatrix} -1 & 1 & 3\\0 & 0 & 10\\0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{1}$ = $\begin{bmatrix} 1\\1\\0\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=2) = 1\\
+Finding Eigen vector for $\lambda_{2}$ = 2 :\\
+$(A-$ $\lambda_{2}$ $I)X_{2} = 0$
+\[
+\begin{bmatrix} 2-0 & 0 & 0\\-1 & 3-0 & 3\\6 & -6 & -6-0\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix} 2 & 0 & 0\\0 & 3 & 3\\0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{2}$ = $\begin{bmatrix} 0\\-1\\1\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=0) = 1\\
+Finding Eigen vector for $\lambda_{3}$ = -3 :\\
+$(A-$ $\lambda_{3}$ $I)X_{3} = 0$
+\[
+\begin{bmatrix} 2+3 & 0 & 0\\-1 & 3+3 & 3\\6 & -6 & -6+3\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix}5 & 0 & 0\\0 & 6 & 3\\0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{3}$=$\begin{bmatrix}0\\1\\-2\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=-3) = 1\\
+for every value of $\lambda$,  AM = GM,
+so matrix A is diagonalizable.
+\[
+X = \begin{bmatrix} 1 & 0 & 0\\1 & -1 & 1\\0 & 1 & -2\end{bmatrix}
+\]
+\[
+X^{-1} = \begin{bmatrix} 1 & 0 & 0\\2 & -2 & -1\\1 & -1 & 1\end{bmatrix}
+\]
+\[
+\Lambda = \begin{bmatrix} 2 & 0 & 0\\0 & 0 & 0\\0 & 0 & -3\end{bmatrix}
+\]
+AX = X$\Lambda$\\
+A = X$\Lambda$$X^-1$
+\[
+A = \begin{bmatrix} 1 & 0 & 0\\1 & -1 & 1\\0 & 1 & -2\end{bmatrix}\begin{bmatrix} 2 & 0 & 0\\0 & 0 & 0\\0 & 0 & -3\end{bmatrix}\begin{bmatrix} 1 & 0 & 0\\2 & -2 & -1\\1 & -1 & 1\end{bmatrix}
+\]
+\newpage
+\item[1.2]
+\[
+A = \begin{bmatrix} 1 & 4 & 0 & 0\\0 & 2 & 0 & 0\\5 & 3 & 1 & 1\\4 & 7 & 2 & 2\end{bmatrix}
+\]
+compute eigen values using $|A - $$\lambda$$I| = 0$\\
+Eigen values($\lambda$) = 0, 1, 2, 3\\
+Algebric multicity corresponding to $\lambda$=(0, 1, 2, 3) are 1, 1, 1, 1\\
+Finding Eigen vector for $\lambda_{1}$ = 0 :\\
+$(A-$ $\lambda_{1}$ $I)X_{1} = 0$
+\[
+\begin{bmatrix} 1-1 & 4 & 0 & 0\\0 & 2-1 & 0 & 0\\5 & 3 & 1-1 & 1\\4 & 7 & 2 & 2-1\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix}1 & 4 & 0 & 0\\0 & 2 & 0 & 0\\0 & 0 & 1 & 1\\0 & 0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{1}$ = $\begin{bmatrix} 0\\0\\-1\\1\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=0) = 1\\
+Finding Eigen vector for $\lambda_{2}$ = 1 :\\
+$(A-$ $\lambda_{2}$ $I)X_{2} = 0$
+\[
+\begin{bmatrix} 1-2 & 4 & 0 & 0\\0 & 2-2 & 0 & 0\\5 & 3 & 1-2 & 1\\4 & 7 & 2 & 2-2\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix} 4 & 7 & 2 & 1\\0 & 1 & 0 & 0\\0 & 0 & 10 & 1\\0 & 0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{2}$ = $\begin{bmatrix} 2\\0\\1\\-10\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=1) = 1\\
+Finding Eigen vector for $\lambda_{3}$ = 2 :\\
+$(A-$ $\lambda_{3}$ $I)X_{3} = 0$
+\[
+\begin{bmatrix} 1-3 & 4 & 0 & 0\\0 & 2-3 & 0 & 0\\5 & 3 & 1-3 & 1\\4 & 7 & 2 & 2-3\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix} -1 & 4 & 0 & 0\\0 & 23 & 2 & 0\\0 & 0 & -3 & 1\\0 & 0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{3}$ = $\begin{bmatrix} 8\\2\\-23\\-69\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=2) = 1\\
+Finding Eigen vector for $\lambda_{4}$ = 3 :\\
+$(A-$ $\lambda_{4}$ $I)X_{4} = 0$
+\[
+\begin{bmatrix} 1-0 & 4 & 0 & 0\\0 & 2-0 & 0 & 0\\5 & 3 & 1-0 & 1\\4 & 7 & 2 & 2-0\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix} -2 & 4 & 0 & 0\\0 & -1 & 0 & 0\\0 & 0 & -2 & 1\\0 & 0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{4}$ = $\begin{bmatrix} 0\\0\\1\\2\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=3) = 1\\
+for every value of $\lambda$,  AM = GM,
+so matrix A is diagonalizable.
+\[
+X = \begin{bmatrix} 0 & 2 & 8 & 0\\0 & 0 & 2 & 0\\-1 & 1 & -23 & 1\\1 & -10 & -69 & 2\end{bmatrix}
+\]
+\[
+X^{-1} = \begin{bmatrix} 2 & -25/6 & -2/3 & 1/3\\1/2 & -2 & 0 & 0\\0 & 1/2 & 0 & 0\\3/2 & 28/3 & 1/3 & 1/3\end{bmatrix}
+\]
+\[
+\Lambda = \begin{bmatrix} 0 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & 2 & 0\\0 & 0 & 0 & 3\end{bmatrix}
+\]
+AX = X$\Lambda$\\
+A = X$\Lambda$$X^-1$
+\[
+A = \begin{bmatrix} 0 & 2 & 8 & 0\\0 & 0 & 2 & 0\\-1 & 1 & -23 & 1\\1 & -10 & -69 & 2\end{bmatrix}\begin{bmatrix} 0 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & 2 & 0\\0 & 0 & 0 & 3\end{bmatrix}\begin{bmatrix} 2 & -25/6 & -2/3 & 1/3\\1/2 & -2 & 0 & 0\\0 & 1/2 & 0 & 0\\3/2 & 28/3 & 1/3 & 1/3\end{bmatrix}
+\]
+\newpage
+\item[1.3]
+\[
+A = \begin{bmatrix} -2 & 0 & 0 & 0\\0 & -2 & 0 & 0\\24 & -12 &2 & 0\\0 & 0 & 0 & 2\end{bmatrix}
+\]
+compute eigen values using $|A - $$\lambda$$I| = 0$\\
+Eigen values($\lambda$) = 2, 2, -2, -2\\
+AM($\lambda$=2) = 2\\
+AM($\lambda$=-2) = 2\\
+Finding Eigen vector for $\lambda_{1}$ = 2 :\\
+$(A-$ $\lambda_{1}$ $I)X_{1} = 0$
+\[
+A = \begin{bmatrix} -4 & 0 & 0 & 0\\0 & -4 & 0 & 0\\24 & -12 & 0 & 0\\0 & 0 & 0 & 0\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix} 1 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{1}$ = $\begin{bmatrix} 0\\0\\1\\0\end{bmatrix}$,$\begin{bmatrix} 0\\0\\0\\1\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=2) = 2\\
+Finding Eigen vector for $\lambda_{1}$ = -2 :\\
+$(A-$ $\lambda_{2}$ $I)X_{2} = 0$
+\[
+A = \begin{bmatrix} 0 & 0 & 0 & 0\\0 & 0 & 0 & 0\\24 & -12 & 4 & 0\\0 & 0 & 0 & 4\end{bmatrix}\begin{bmatrix} x_{1}\\x_{2}\\x_{3}\\x_{4}\end{bmatrix} = 0
+\]
+reducing to row echelon form
+\[
+\begin{bmatrix} 6 & -3 & 1 & 0\\0 & 0 & 0 & 1\\0 & 0 & 0 & 0\\0 & 0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector $v_{2}$ = $\begin{bmatrix} 2\\0\\1\\0\end{bmatrix}$,$\begin{bmatrix} 0\\0\\-1\\0\end{bmatrix}$\\
+Geometric multicity for ($\lambda$=-2) = 2\\
+for every value of $\lambda$,  AM = GM,
+so matrix A is diagonalizable.
+\[
+X = \begin{bmatrix} 0 & 0 & 2 & 0\\0 & 0 & 0 & 6\\1 & 0 & 1 & -1\\0 & 1 & 0 & 0\end{bmatrix}
+\]
+\[
+X^{-1} = \begin{bmatrix} -1/2 & 1/6 & 1 & 0\\0 & 0 & 0 & 1\\1/2 & 0 & 0 & 0\\0 & 1/6 & 0 & 0\end{bmatrix}
+\]
+\[
+\Lambda = \begin{bmatrix} 2 & 0 & 0 & 0\\0 & 2 & 0 & 0\\0 & 0 & -2 & 0\\0 & 0 & 0 & -2\end{bmatrix}
+\]
+AX = X$\Lambda$\\
+A = X$\Lambda$$X^-1$
+\[
+A = \begin{bmatrix} 0 & 0 & 2 & 0\\0 & 0 & 0 & 6\\1 & 0 & 1 & -1\\0 & 1 & 0 & 0\end{bmatrix}\begin{bmatrix} 2 & 0 & 0 & 0\\0 & 2 & 0 & 0\\0 & 0 & -2 & 0\\0 & 0 & 0 & -2\end{bmatrix}\begin{bmatrix} -1/2 & 1/6 & 1 & 0\\0 & 0 & 0 & 1\\1/2 & 0 & 0 & 0\\0 & 1/6 & 0 & 0\end{bmatrix}
+\]
+\newpage
+\item[2.1]
+\[
+A = \begin{bmatrix} 7 & 1\\5 & 5\\0 & 0\end{bmatrix},
+A = U_{m*m}\Sigma_{m*n}V_{n*n}
+\]
+AA$^T$ = $\begin{bmatrix} 7 & 1\\5 & 5\\0 & 0\end{bmatrix}$$\begin{bmatrix} 7 & 5 & 0\\1 & 5 & 0\end{bmatrix}$
+=$\begin{bmatrix} 50 & 40 & 0\\40 & 50 & 0\\0 & 0 & 0\end{bmatrix}$\\
+Eigen value for AA$^T$,\\
+$\lambda$ = 0, 10, 90\\
+Singular values, $\sigma_{1}$ = $\sqrt{10}$, $\sigma_{2}$ = $\sqrt{90}$
+\[
+\Sigma_{3*2} = \begin{bmatrix}  \sqrt{10} & 0\\0 & \sqrt{90}\\0 & 0\end{bmatrix}
+\]
+(AA$^T$ - $\lambda$I) = 0\\
+for $\lambda$ = 0,\\
+Reduced echelon form is
+\[
+\begin{bmatrix} 5 & 4 & 0\\0 & 9/5 & 0\\0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector v$_{1}$ = $\begin{bmatrix} 0\\0\\1\end{bmatrix}$\\
+Orthogonal vector q$_{1}$ = $\begin{bmatrix} 0\\0\\1\end{bmatrix}$\\
+for $\lambda$ = 10,\\
+Reduced echelon form is
+\[
+\begin{bmatrix} 40 & 40 & 0\\0 & 0 & -10\\0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector v$_{2}$ = $\begin{bmatrix} -1\\1\\0\end{bmatrix}$\\
+Orthogonal vector q$_{2}$ = 1/$\sqrt{2}$$\begin{bmatrix} -1\\1\\0\end{bmatrix}$\\
+for $\lambda$ = 90,\\
+Reduced echelon form is
+\[
+\begin{bmatrix} -40 & 40 & 0\\0 & 0 & -90\\0 & 0 & 0\end{bmatrix}
+\]
+Eigen vector v$_{3}$ = $\begin{bmatrix} 1\\1\\0\end{bmatrix}$\\
+Orthogonal vector q$_{3}$ = 1/$\sqrt{2}$$\begin{bmatrix} 1\\1\\0\end{bmatrix}$
+\[
+U_{3*3} = \begin{bmatrix}  -1/\sqrt{2} & 1/\sqrt{2} & 0\\ 1/\sqrt{2} & 1/\sqrt{2} & 0\\0 & 0 & 1\end{bmatrix}
+\]
+A$^T$A = $\begin{bmatrix} 74 & 32\\32 & 26 \end{bmatrix}$\\
+Eigen value for A$^T$A,\\
+$\lambda$ = 10, 90\\
+Singular values, $\sigma_{1}$ = $\sqrt{10}$, $\sigma_{2}$ = $\sqrt{90}$\\
+for $\lambda$ = 10,\\
+Eigen vector v$_{1}$ = $\begin{bmatrix} -1\\2\end{bmatrix}$\\
+Orthogonal vector q$_{1}$ = 1/$\sqrt{5}$$\begin{bmatrix} -1\\2\end{bmatrix}$\\
+for $\lambda$ = 90,\\
+Eigen vector v$_{2}$ = $\begin{bmatrix} 2\\1\end{bmatrix}$\\
+Orthogonal vector q$_{2}$ = 1/$\sqrt{5}$$\begin{bmatrix} 2\\1\end{bmatrix}$
+\[
+V_{2*2} = \begin{bmatrix}  -1/\sqrt{5} & 2/\sqrt{5}\\ 2/\sqrt{5} & 1/\sqrt{5}\end{bmatrix}
+\]
+\[
+V^T_{2*2} = \begin{bmatrix}  -1/\sqrt{5} & 2/\sqrt{5}\\ 2/\sqrt{5} & 1/\sqrt{5}\end{bmatrix}
+\]
+\[
+A = \begin{bmatrix}  -1/\sqrt{2} & 1/\sqrt{2} & 0\\ 1/\sqrt{2} & 1/\sqrt{2} & 0\\0 & 0 & 1\end{bmatrix}
+\begin{bmatrix}  \sqrt{10} & 0\\0 & \sqrt{90}\\0 & 0\end{bmatrix}
+\begin{bmatrix}  -1/\sqrt{5} & 2/\sqrt{5}\\ 2/\sqrt{5} & 1/\sqrt{5}\end{bmatrix}
+\]
+\item[2.2]
+\[
+A = \begin{bmatrix} 3 & 2 & 2\\2 & 3 &-2\end{bmatrix},
+A = U_{2*2}\Sigma_{2*3}V_{3*3}
+\]
+AA$^T$ = $\begin{bmatrix} 17 & 8\\8 & 17\end{bmatrix}$\\
+Eigen value for AA$^T$,\\
+$\lambda$ = 9, 25\\
+Singular values, $\sigma_{1}$ = 3, $\sigma_{2}$ = 5
+\[
+\Sigma_{2*3} = \begin{bmatrix}  3 & 0 & 0\\0 & 5 & 0\end{bmatrix}
+\]
+(AA$^T$ - $\lambda$I) = 0\\
+for $\lambda$ = 9,\\
+Reduced echelon form is
+\[
+\begin{bmatrix} 1 & 1\\0 & 0\end{bmatrix}
+\]
+Eigen vector v$_{1}$ = $\begin{bmatrix} -1\\1\end{bmatrix}$\\
+Orthogonal vector q$_{1}$ = 1/$\sqrt{2}$$\begin{bmatrix} -1\\1\end{bmatrix}$\\
+for $\lambda$ = 25,\\
+Reduced echelon form is
+\[
+\begin{bmatrix} -1 & 1\\0 & 0\end{bmatrix}
+\]
+Eigen vector v$_{2}$ = $\begin{bmatrix} 1\\1\end{bmatrix}$\\
+Orthogonal vector q$_{2}$ = 1/$\sqrt{2}$$\begin{bmatrix} 1\\1\end{bmatrix}$
+\[
+U_{2*2} = \begin{bmatrix}  -1/\sqrt{2} & 1/\sqrt{2}\\ 1/\sqrt{2} & 1/\sqrt{2}\end{bmatrix}
+\]
+calculating V matrix,\\
+$v_{i}$ = 1/$\sigma_{i}$$A^Tu_{1}$\\
+$v_{1}$ = 1/3$\begin{bmatrix} 3 & 2\\ 2 & 3\\ 2 & -2\end{bmatrix}$$\begin{bmatrix}-1/\sqrt{2}\\1/\sqrt{2}\end{bmatrix}$\\
+$v_{1}$ = $\begin{bmatrix}  -1/3\sqrt{2} \\ 1/3\sqrt{2}\\ -4/3\sqrt{2}\end{bmatrix}$\\
+$v_{2}$ = 1/5$\begin{bmatrix} 3 & 2\\ 2 & 3\\ 2 & -2\end{bmatrix}$$\begin{bmatrix}1/\sqrt{2}\\1/\sqrt{2}\end{bmatrix}$\\
+$v_{2}$ = $\begin{bmatrix}  1/\sqrt{2} \\ 1/\sqrt{2}\\0\end{bmatrix}$\\
+taking v$_{3}$ as perpendicular to both $v_{1}$ and $v_{2}$,\\
+$v_{3}$ = $\begin{bmatrix}  -2/3 \\ 2/3\\1/3\end{bmatrix}$
+\[
+V_{3*3} = \begin{bmatrix}  -1/3\sqrt{2} & 1/\sqrt{2} & -2/3\\ 1/3\sqrt{2} & 1/\sqrt{2} & 2/3\\ -4/3\sqrt{2} & 0 & 1/3 \end{bmatrix}
+\]
+\[
+V^T_{3*3} = \begin{bmatrix}  -1/3\sqrt{2} & 1/3\sqrt{2} & -4/3\sqrt{2}\\ 1/\sqrt{2} & 1/\sqrt{2} & 0\\ -2/3 & 2/3 & 1/3 \end{bmatrix}
+\]
+\[
+A = \begin{bmatrix}  -1/\sqrt{2} & 1/\sqrt{2}\\ 1/\sqrt{2} & 1/\sqrt{2}\end{bmatrix}\begin{bmatrix}  3 & 0 & 0\\0 & 5 & 0\end{bmatrix}\begin{bmatrix}  -1/3\sqrt{2} & 1/3\sqrt{2} & -4/3\sqrt{2}\\ 1/\sqrt{2} & 1/\sqrt{2} & 0\\ -2/3 & 2/3 & 1/3 \end{bmatrix}
+\]
+\newpage
+\item[5.1 ]
+A = $\begin{bmatrix} -6 & 2 & 0\\ 2 & -6 & 2\\ 0 & 2 & -6\end{bmatrix}$\\
+A is square matrix and transpose is:\\
+A$^T$ = $\begin{bmatrix} -6 & 2 & 0\\ 2 & -6 & 2\\ 0 & 2 & -6\end{bmatrix}$\\
+A = A$^T$, so A is symmetric matrix.
+\item[5.2 ]
+A = $\begin{bmatrix} 1 & 2 & 2 & 1\\ 2 & 2 & 2 & 1\\ 2 & 2 & 1 & 2\end{bmatrix}$\\
+A is not a square matrix so A is not symmetric.
+\item[7. ]
+\[
+B = C^TAC
+\]
+$X^TBX = X^TC^TACX$\\
+assume, CX = Y then $Y^T = X^TC^T$
+\[X^TBX = Y^TAY,\]
+A is symmetric positive definite and C is nonsingular\\
+so, Y $\neq$ 0,\\
+hence,
+\[
+X^TBX > 0.\]
+B is also symmetric positive definite
+
+\end{enumerate}
+
+\end{document}
