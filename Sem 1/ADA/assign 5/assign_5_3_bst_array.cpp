@@ -2,6 +2,9 @@
 
 using namespace std;
 
+// ques is about finding given 2 trees are mirror similar or not.
+// I have take binary search tree not a normal tree for the example but checkmirror() method will work for any type of tree.
+
 struct node {
     int data;
     int empty;
