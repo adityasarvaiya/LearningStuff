@@ -139,7 +139,7 @@ void BSTFromInoPost(int *ino, int *psto, int len)
 }
 
 
-int searchNodeIno(int *a, int find, int start, int len) 
+int searchInArray(int *a, int find, int start, int len) 
 {
     int i;
     for (i = start; i < len; i++) {
@@ -173,7 +173,7 @@ struct node * createTree(int *ino, int *psto, int start, int end, int *last, int
             if (start == end) {
                 return newNode;
             } else {
-                int pos = searchNodeIno(ino, tmp, 0, len);
+                int pos = searchInArray(ino, tmp, 0, len);
                 newNode->right = createTree(ino, psto, (pos+1), end, last, len);
                 newNode->left = createTree(ino, psto, start, (pos-1), last, len);
                 return newNode;
@@ -196,11 +196,11 @@ void TreeFromInoPosto(int *ino, int *psto, int len)
 int main() 
 {
 	
-    // int ino[] = {3, 15, 1, 10, 16, 9, 49};
-    // int psto[] = {3, 1, 15, 16, 49, 9, 10};
+    int ino[] = {3, 15, 1, 10, 16, 9, 49};
+    int psto[] = {3, 1, 15, 16, 49, 9, 10};
     
-    int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
-    int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
+    // int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
+    // int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
 
 	// int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40, 43};
     // int psto[] = {3, 6, 5, 7, 9, 8, 15, 43, 40, 20, 10};
