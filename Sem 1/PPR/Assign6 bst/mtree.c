@@ -99,8 +99,8 @@ void totalLeafNodes(struct node *root, int *totalleaves, int *sum)
 
 void TreeFromInoPost() 
 {
-	int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40, 43};
-    int psto[] = {3, 6, 5, 7, 9, 8, 15, 43, 40, 20, 10};
+	int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
+    int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
 
     struct node *root = NULL;
 
@@ -194,26 +194,30 @@ struct node *maketree(int *ino, int *psto, int start, int end, int len){
 
 struct node * createTree(int *ino, int *psto, int start, int end, int *last, int len) 
 {
-    struct node *newNode = createNode(psto[*last]);
-    (*last)--;
+    if (*last > -1) {
 
-    if (start > end) {
-        return NULL;
-    } else if (start == end) {
-        return newNode;
-    } else {
-        int pos = searchNodeIno(ino, psto[*last], 0, len);
-        newNode->right = createTree(ino, psto, (pos+1), end, last, len);
-        newNode->left = createTree(ino, psto, start, (pos-1), last, len);
-        return newNode;
-    }
+        struct node *newNode = createNode(psto[*last]);
+        printf("%d\n", *last);
+        (*last)--;
+
+        if (start > end) {
+            return NULL;
+        } else if (start == end) {
+            return newNode;
+        } else {
+            int pos = searchNodeIno(ino, psto[*last], 0, len);
+            newNode->right = createTree(ino, psto, (pos+1), end, last, len);
+            newNode->left = createTree(ino, psto, start, (pos-1), last, len);
+            return newNode;
+        }
+    }   
 }
 
 int main() 
 {
 	TreeFromInoPost(); 
-    int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40, 43};
-    int psto[] = {3, 6, 5, 7, 9, 8, 15, 43, 40, 20, 10};
+    int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
+    int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
 
 	// int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40, 43};
     // int psto[] = {3, 6, 5, 7, 9, 8, 15, 43, 40, 20, 10};
