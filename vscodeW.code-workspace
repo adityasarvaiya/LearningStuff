@@ -15,7 +15,10 @@
 			"chrono": "c",
 			"limits": "c",
 			"valarray": "c",
-			"string_view": "c"
+			"string_view": "c",
+			"initializer_list": "c",
+			"array": "c",
+			"forward_list": "c"
 		}
 	}
 }

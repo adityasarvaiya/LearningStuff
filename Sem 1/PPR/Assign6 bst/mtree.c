@@ -97,15 +97,33 @@ void totalLeafNodes(struct node *root, int *totalleaves, int *sum)
     }
 }
 
-void TreeFromInoPost() 
+void PrintAllDetails(struct node *r) 
 {
-	int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
-    int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
+    printf("\n");
+    printf("Preorder : ");
+    printpreorder(r);
+    printf("\n");
 
+    printf("Inorder : ");
+    printinorder(r);
+    printf("\n");
+
+    printf("Postorder : ");
+    printpostorder(r);
+    printf("\n");
+
+    int totleafnodes  = 0;
+    int sum = 0;
+    totalLeafNodes(r, &totleafnodes, &sum);
+    printf("Total Leaf nodes : %d\n", totleafnodes);
+    printf("Total Sum of Leaf nodes : %d\n", sum);
+}
+
+void BSTFromInoPost(int *ino, int *psto, int len) 
+{
     struct node *root = NULL;
 
     int i,j;
-    int len = sizeof(ino)/sizeof(ino[0]);
     for (i = (len - 1); i >= 0; i--) {
         for (j = 0; j < len; j++) {
             if (psto[i] == ino[j]) {
@@ -116,34 +134,16 @@ void TreeFromInoPost()
         }
     }
 
- 	printf("Preorder : ");
-    printpreorder(root);
-    printf("\n");
-
-    printf("Inorder : ");
-    printinorder(root);
-    printf("\n");
-
-    printf("Postorder : ");
-    printpostorder(root);
-    printf("\n");
-    
-    int totleafnodes  = 0;
-    int sum = 0;
-    totalLeafNodes(root, &totleafnodes, &sum);
-    printf("Total Leaf nodes : %d\n", totleafnodes);
-    printf("Total Sum of Leaf nodes : %d\n", sum);
+ 	PrintAllDetails(root);
 
 }
 
 
-int searchNodeIno(int a[], int find, int start, int end) 
+int searchNodeIno(int *a, int find, int start, int len) 
 {
     int i;
-    int flag = 0;
-    for (i = start; i <= end; i++) {
+    for (i = start; i < len; i++) {
         if (a[i] == find) {
-            flag = 1;
             return i;
         }
     }
@@ -158,85 +158,56 @@ struct node *createNode(int data)
     return tmp;
 }
 
-struct node *maketree(int *ino, int *psto, int start, int end, int len){
-    struct node *root = (struct node *) malloc(sizeof(struct node));
-
-    int last = -1;
-    int i,j;
-
-    for (i = start; i <= end; i++) {
-        for (j = 0 ; j < len; j++) {
-            if (ino[i] == psto[j]) {
-                if (j > last) {
-                    last = j;
-                }
-                break;
-            }
-        }
-    }
-
-    int inoIndex = searchNodeIno(ino, psto[last], start, end);
-    root->data = ino[inoIndex];
-
-    if (inoIndex != start && inoIndex != end) {
-        root->left = maketree(ino, psto, start, (inoIndex-1), len);
-        root->right = maketree(ino, psto, (inoIndex+1), end, len);
-    } else if ((inoIndex-1) == start) {
-        root->left = createNode(ino[start]);
-        root->right = maketree(ino, psto, (inoIndex+1), end, len);
-    } else if ((inoIndex+1) == end) {
-        root->left = maketree(ino, psto, start, (inoIndex-1), len);
-        root->right = createNode(ino[end]);
-    }
-        
-    return root;
-}
-
 struct node * createTree(int *ino, int *psto, int start, int end, int *last, int len) 
 {
     if (*last > -1) {
 
-        struct node *newNode = createNode(psto[*last]);
-        printf("%d\n", *last);
-        (*last)--;
-
         if (start > end) {
             return NULL;
-        } else if (start == end) {
-            return newNode;
-        } else {
-            int pos = searchNodeIno(ino, psto[*last], 0, len);
-            newNode->right = createTree(ino, psto, (pos+1), end, last, len);
-            newNode->left = createTree(ino, psto, start, (pos-1), last, len);
-            return newNode;
+        } else {  
+            
+            int tmp = psto[*last];
+            struct node *newNode = createNode(tmp);
+            (*last)--;
+
+            if (start == end) {
+                return newNode;
+            } else {
+                int pos = searchNodeIno(ino, tmp, 0, len);
+                newNode->right = createTree(ino, psto, (pos+1), end, last, len);
+                newNode->left = createTree(ino, psto, start, (pos-1), last, len);
+                return newNode;
+            }
         }
+    } else {
+        return NULL;
     }   
+}
+
+void TreeFromInoPosto(int *ino, int *psto, int len) 
+{
+    int last1 = (len - 1);
+    // struct node * r = maketree(ino, psto, 0, len-1, len);
+    struct node * root = createTree(ino, psto, 0, len-1, &last1, len);
+    
+    PrintAllDetails(root);
 }
 
 int main() 
 {
-	TreeFromInoPost(); 
+	
+    // int ino[] = {3, 15, 1, 10, 16, 9, 49};
+    // int psto[] = {3, 1, 15, 16, 49, 9, 10};
+    
     int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
     int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
 
 	// int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40, 43};
     // int psto[] = {3, 6, 5, 7, 9, 8, 15, 43, 40, 20, 10};
+
     int len = sizeof(psto)/sizeof(psto[0]);
-    
-    int last = len - 1;
-    // struct node * r = maketree(ino, psto, 0, len-1, len);
-    struct node * r = createTree(ino, psto, 0, len-1, &last, len-1);
-    
-    printf("Preorder : ");
-    printpreorder(r);
-    printf("\n");
+    BSTFromInoPost(ino, psto, len); 
+    TreeFromInoPosto(ino, psto, len);
 
-    printf("Inorder : ");
-    printinorder(r);
-    printf("\n");
-
-    printf("Postorder : ");
-    printpostorder(r);
-    printf("\n");
 
 }
