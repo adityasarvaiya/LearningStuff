@@ -58,7 +58,7 @@ void search(struct node *root, int ip)
 void printpreorder(struct node *root) 
 {   
     if (root != NULL) {
-        printf("%d_", root->data);  
+        printf("%d, ", root->data);  
         printpreorder(root->left);
         printpreorder(root->right);
     }
@@ -68,7 +68,7 @@ void printinorder(struct node *root)
 {   
     if (root != NULL) {
         printinorder(root->left);
-        printf("%d_", root->data);
+        printf("%d, ", root->data);
         printinorder(root->right);
     }
 }
@@ -78,7 +78,7 @@ void printpostorder(struct node *root)
     if (root != NULL) {
         printpostorder(root->left);
         printpostorder(root->right);
-        printf("%d_", root->data);
+        printf("%d, ", root->data);
     }
 }
 
@@ -119,7 +119,7 @@ void PrintAllDetails(struct node *r)
     printf("Total Sum of Leaf nodes : %d\n", sum);
 }
 
-void BSTFromInoPost(int *ino, int *psto, int len) 
+struct node * BSTFromInoPost(int *ino, int *psto, int len) 
 {
     struct node *root = NULL;
 
@@ -133,9 +133,7 @@ void BSTFromInoPost(int *ino, int *psto, int len)
             }
         }
     }
-
- 	PrintAllDetails(root);
-
+    return root;
 }
 
 
@@ -184,30 +182,103 @@ struct node * createTree(int *ino, int *psto, int start, int end, int *last, int
     }   
 }
 
-void TreeFromInoPosto(int *ino, int *psto, int len) 
+struct node * TreeFromInoPosto(int *ino, int *psto, int len) 
 {
     int last1 = (len - 1);
     // struct node * r = maketree(ino, psto, 0, len-1, len);
     struct node * root = createTree(ino, psto, 0, len-1, &last1, len);
     
-    PrintAllDetails(root);
+    return root;
+}
+
+struct node *makeMirror(struct node *root)
+{
+    if (root == NULL) {
+        return NULL;
+    } else {
+        int data = root->data;
+        struct node *curr = createNode(data);
+        curr->left = makeMirror(root->right);
+        curr->right = makeMirror(root->left);
+        return curr;
+    }
+}
+
+void printArray(int a[], int len)
+{
+    int i;
+    for (i = 0; i <= len; i++) {
+        printf("%d ", a[i]);
+    }
+    printf("\n");
+}
+
+void printAllPaths(struct node *root, int path[], int pos)
+{
+    if (root != NULL) {
+        path[++pos] = root->data;
+
+        if (root->left == NULL && root->right == NULL) {
+            printArray(path, pos);
+            return;
+        } 
+        
+        if (root->left != NULL) {
+            printAllPaths(root->left, path, (pos));
+        }
+
+        if (root->right != NULL) {
+            printAllPaths(root->right, path, (pos));
+        }
+    }
+}
+
+void AllAtKdis(struct node *root, int curr_k, int k)
+{
+    if (curr_k == k) {
+        printf("%d ", root->data);
+    } else if (curr_k < k) {
+        if (root->left != NULL) {
+            AllAtKdis(root->left, curr_k+1, k);
+        }
+
+        if (root->right != NULL) {
+            AllAtKdis(root->right, curr_k+1, k);
+        }
+    }
 }
 
 int main() 
 {
 	
-    int ino[] = {3, 15, 1, 10, 16, 9, 49};
-    int psto[] = {3, 1, 15, 16, 49, 9, 10};
+    // int ino[] = {3, 15, 1, 10, 16, 9, 49};
+    // int psto[] = {3, 1, 15, 16, 49, 9, 10};
     
-    // int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
-    // int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
+    //int pre[] = {10, 8, 7, 5, 3, 6, 9, 20, 15, 40}
+    int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40};
+    int psto[] = {3, 6, 5, 7, 9, 8, 15, 40, 20, 10};
 
 	// int ino[] = {3, 5, 6, 7, 8, 9, 10, 15, 20, 40, 43};
     // int psto[] = {3, 6, 5, 7, 9, 8, 15, 43, 40, 20, 10};
 
     int len = sizeof(psto)/sizeof(psto[0]);
-    BSTFromInoPost(ino, psto, len); 
-    TreeFromInoPosto(ino, psto, len);
+    
+    // struct node *root = BSTFromInoPost(ino, psto, len); 
+    // PrintAllDetails(root);
+   
+    printf("\n");
+    struct node * root1 = TreeFromInoPosto(ino, psto, len);
+    PrintAllDetails(root1);
 
+    int path[100];
+    printf("All Paths : \n");
+    printAllPaths(root1, path, -1);
 
+    // printf("Mirror : \n");
+    // struct node *mirror = makeMirror(root);
+    // PrintAllDetails(mirror);
+
+    printf("\nAll at K distances : \n");
+    AllAtKdis(root1, 0, 4);
+    printf("\n");
 }
