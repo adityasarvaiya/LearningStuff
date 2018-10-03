@@ -248,6 +248,31 @@ void AllAtKdis(struct node *root, int curr_k, int k)
     }
 }
 
+int deleteterminal(struct node *root) 
+{
+    if (root->left == NULL && root->right == NULL) {
+        return 1;
+    } 
+    
+    if (root->left != NULL) {
+        if(deleteterminal(root->left)) {
+            struct node *tmp = root->left;
+            root->left = NULL;
+            free(tmp);
+        }
+    } 
+    
+    if (root->right != NULL) {
+        if(deleteterminal(root->right)) {
+            struct node *tmp = root->right;
+            root->right = NULL;
+            free(tmp);
+        }
+    }
+
+    return 0;
+}
+
 int main() 
 {
 	
@@ -278,7 +303,12 @@ int main()
     // struct node *mirror = makeMirror(root);
     // PrintAllDetails(mirror);
 
-    printf("\nAll at K distances : \n");
-    AllAtKdis(root1, 0, 4);
+    // printf("\nAll at K distances : \n");
+    // AllAtKdis(root1, 0, 4);
+    // printf("\n");
+
+    printf("\nDelete all Terminals:  \n");
+    int z = deleteterminal(root1);
+    PrintAllDetails(root1);
     printf("\n");
 }
