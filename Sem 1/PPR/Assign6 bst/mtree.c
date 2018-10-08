@@ -273,6 +273,31 @@ int deleteterminal(struct node *root)
     return 0;
 }
 
+int finddepth(struct node * root, int data, int dep)
+{
+    if (root->data == data) {
+        return dep;
+    } else if (root->data > data) {
+        return finddepth(root->left, data, (dep+1));
+    } else if (root->data < data) {
+        return finddepth(root->right, data, (dep+1));
+    }
+}
+
+int minDistance(struct node* root, int d1, int d2)
+{
+    if (root->data > d1 && root->data > d2) {
+        return minDistance(root->left, d1, d2);
+    } else if (root->data < d1 && root->data < d2) {
+        return minDistance(root->right, d1, d2);
+    } else {
+        int dep1 = finddepth(root,d1,0);
+        int dep2 = finddepth(root,d2,0);
+        return (dep1+dep2);
+    }
+
+}
+
 int main() 
 {
 	
@@ -307,8 +332,14 @@ int main()
     // AllAtKdis(root1, 0, 4);
     // printf("\n");
 
-    printf("\nDelete all Terminals:  \n");
-    int z = deleteterminal(root1);
+    // printf("\nDelete all Terminals:  \n");
+    // int z = deleteterminal(root1);
+    // PrintAllDetails(root1);
+    // printf("\n");
+
+    printf("\nPrint Min distance:  \n");
+    int z = minDistance(root1, 5, 6);
+    printf("Min distance is : %d\n", z);
     PrintAllDetails(root1);
     printf("\n");
 }
