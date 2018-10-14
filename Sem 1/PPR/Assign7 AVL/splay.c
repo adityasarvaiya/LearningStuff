@@ -108,7 +108,7 @@ void printdetails(struct node *root)
 
 void rightrotate(struct node **root) 
 {
-    if ((*root) != NULL) {
+    if ((*root) != NULL && (*root)->left != NULL) {
         struct node * rootleft = (*root)->left;
         struct node * rootleftright = (*root)->left->right;
 
@@ -120,7 +120,7 @@ void rightrotate(struct node **root)
 
 void leftrotate(struct node **root) 
 {
-    if ((*root) != NULL) {
+    if ((*root) != NULL && (*root)->right != NULL) {
         struct node * rootright = (*root)->right;
         struct node * rootrightleft = (*root)->right->left;
 
@@ -149,24 +149,25 @@ int main()
 {
     struct node *root = NULL;
     
-    int a[] = {15,20,24,10,13,7,30,36,25};
+    // int a[] = {15,20,24,10,13,7,30,36,25};
     // int a[] = {15,20,24,10,13,7,30};
-    // int a[] = {24,20,15};
+    int a[] = {100,200,50,40,30,20};
     int len = sizeof(a)/sizeof(a[0]);
     int i;
 
     for (i = 0; i < len ; i++){
         insert(&root, a[i]);
+        root = search(&root, a[i]);
     }
     
     printdetails(root);
 
-    root = search(&root, 24);
+    root = search(&root, 20);
     printdetails(root);
 
-    root = search(&root, 13);
-    printdetails(root);
+    // root = search(&root, 13);
+    // printdetails(root);
 
-    root = search(&root, 36);
-    printdetails(root);
+    // root = search(&root, 36);
+    // printdetails(root);
 }
