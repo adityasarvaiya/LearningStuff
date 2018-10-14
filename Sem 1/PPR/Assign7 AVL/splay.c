@@ -91,7 +91,7 @@ void printpostord(struct node *root)
 void printdetails(struct node *root) 
 {
     printf("\n");
-    
+
     printf("Inorder : ");
     printinord(root);
     printf("\n");
@@ -103,6 +103,8 @@ void printdetails(struct node *root)
     printf("Postorder : ");
     printpostord(root);
     printf("\n");
+    printf("\n");
+    
 }
 
 
@@ -158,6 +160,8 @@ int main()
     for (i = 0; i < len ; i++){
         insert(&root, a[i]);
         root = search(&root, a[i]);
+        printf("Input : %d", a[i]);
+        printdetails(root);
     }
     
     printdetails(root);
