@@ -266,7 +266,6 @@ void delete(struct node **root)
             *root = succ;
         }
     }
-
     
     free(delete);
 }
