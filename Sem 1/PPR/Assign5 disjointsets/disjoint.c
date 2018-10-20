@@ -29,6 +29,18 @@ void printdetails(struct node set[], int i)
     printf("\n");
 }
 
+struct node* makeset(struct node ** set, int n, int input[]) 
+{
+    int i;
+    *set = (struct node *) malloc(n * sizeof(struct node));
+    for (i = 0; i < n; i++) {
+        (*set)[i].parent = i;
+        (*set)[i].data = input[i];
+    }
+
+    return *set;
+}
+
 int findset(struct node set[], int data, int n) 
 {
     int i;
@@ -61,15 +73,11 @@ void setUnion(struct node set[], int n, int d1, int d2)
 
 int main(int argc, char const *argv[])
 {
-    int n=5,i;
-    struct node set[n];
+    int n = 5,i;
 
     int input[] = {10,20,30,40,50};
-        
-    for (i = 0; i < n; i++) {
-        set[i].parent = i;
-        set[i].data = input[i];
-    }
+    struct node *set;
+    set = makeset(&set, n, input);
 
     int setname = findset(set, 30, n-1);
     printdetails(set, n);    
