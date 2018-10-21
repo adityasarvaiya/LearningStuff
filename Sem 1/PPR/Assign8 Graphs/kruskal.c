@@ -68,7 +68,7 @@ void setunion(struct node *set, int n, int d1, int d2)
 int main ()
 {   
     int n = 5;
-
+    
     int input[] = {10,20,30,40,50};
     printf("1\n");
     struct node *set;
