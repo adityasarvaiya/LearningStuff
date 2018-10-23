@@ -265,6 +265,8 @@ void delete(struct node **root)
             succ->right = righttree;
             *root = succ;
         }
+    } else {
+        *root = NULL;
     }
     
     free(delete);
