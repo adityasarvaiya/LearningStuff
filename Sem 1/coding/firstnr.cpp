@@ -13,7 +13,6 @@ int findfirst(char str[], int j, int hash[], char in) {
         hash[in - 'a'] = 1;
         f = 1;
     }
-
     for (i = 0; i < j; i++) {
         //printf("\n str[i] : %c \n", str[i]);
         if (hash[str[i] - 'a'] == 1) {
