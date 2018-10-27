@@ -112,14 +112,8 @@ void insert(struct node **root, int data)
 
             // insert into a parent node
             insert(&par, (*root)->key[MINDIG]);
-            if (par == NULL) {
-                struct node *curr = createNode((*root)->key[MINDIG]);
-                curr->ptr[0] = (*root);
-                curr->ptr[1] = newNode;
-                (*root) = curr;
-            } else if () {
-
-            }
+            int tmp1 = newSearchIndex(par, (*root)->key[MINDIG]);
+            par->ptr[tmp1] = newNode;
         }
 
     }
