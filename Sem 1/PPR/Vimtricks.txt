@@ -1,5 +1,6 @@
 source : http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
 
+gg=G - autoindent open file with tabwidth=default tabwidth, have to write it without ":"
 :%s/ *$/ - For all lines in a file, delete blank spaces at end of line (there is a single space before the asterisk). Repeat with a tab instead of a space to delete trailing tabs.
 :%s/fff/rrrrr/ - For all lines in a file, find string "fff" and replace with string "rrrrr" for the first instance on a line.
 :%s/fff/rrrrr/g - For all lines in a file, find string "fff" and replace with string "rrrrr" for each instance on a line.
@@ -9,8 +10,15 @@ source : http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
 AutoIndentation
 Turn on autoindent: :set autoindent :set ai 
 Turn off autoindent: :set noautoindent	:set noai 
-Set indent width: set shiftwidth=4 
-Intelligent auto-indent: set smartindent 
+
+Intelligent auto-indent: 
+set smartindent :set si 
+
+Set tabwidth: will set up the size of tab. tab = how many spaces
+:set tabstop=8 :set ts=8
+
+Set indent width: 
+:set shiftwidth=4  :set sw=4 
 
 Display line numbers
 :set number :set nu
