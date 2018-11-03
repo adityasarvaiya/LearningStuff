@@ -1,5 +1,7 @@
 source : http://www.yolinux.com/TUTORIALS/LinuxTutorialAdvanced_vi.html
 
+:set hlsearch tohighlight the search
+/  *s/ totsearch double spaces at the end of every lines
 gg=G - autoindent open file with tabwidth=default tabwidth, have to write it without ":"
 :%s/ *$/ - For all lines in a file, delete blank spaces at end of line (there is a single space before the asterisk). Repeat with a tab instead of a space to delete trailing tabs.
 :%s/fff/rrrrr/ - For all lines in a file, find string "fff" and replace with string "rrrrr" for the first instance on a line.
