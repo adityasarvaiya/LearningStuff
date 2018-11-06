@@ -8,8 +8,8 @@
 
 struct node {
     int count;
-    int key[MAXKEYS];
-    struct node * (ptr[MAXPTRS]);
+    int key[MAXKEYS+1];
+    struct node * (ptr[MAXPTRS+1]);
     struct node *par;
 };
 
@@ -146,6 +146,7 @@ int main(int argc, char const *argv[])
         printf("n : %d\n", root->count);
     }
     
+    printf("Inorder : ");
     printinorder(root);
 
     return 0;
