@@ -68,9 +68,29 @@ int newSearchIndex(struct node *root, int data)
         }
     } 
 
-    return (n + 1);
+    return n;
 }
 
+
+void printnode(struct node *root) 
+{
+    int i;
+    for (i = 0; i < root->count; i++) {
+        if (root->ptr[i] == NULL) {
+            printf("0 ");
+        } else {
+            printf("1 ");
+        }
+
+        printf(" %d\n", root->key[i]);
+    }
+
+    if (root->ptr[MAXPTRS-1] == NULL) {
+        printf("0 \n\n");
+    } else {
+        printf("1 \n\n");
+    }
+}
 
 void insert(struct node **root, int data) 
 {
@@ -79,54 +99,61 @@ void insert(struct node **root, int data)
         *root = curr;
     } else {
         struct node *par = NULL;
-printf("1\n");
-        while ((*root)->ptr[0] != NULL) {
-            par = (*root);
+        struct node *curr = *root;
+
+        while (curr->ptr[0] != NULL) {
+            par = curr;
             
-printf("In par, %d\n", par->key[0]);
-            (*root) = (*root)->ptr[newSearchIndex(*root, data)];
+            curr = curr->ptr[newSearchIndex(curr, data)];
         }    
-printf("2\n");
 
-        if ((*root)->count < (MINDIG*2 - 1)) {
-            insertInNode(root, data);
-printf("3\n");
-
+        if (curr->count < (MINDIG*2 - 1)) {
+            insertInNode(&curr, data);
         } else {
-printf("4\n");
-printinorder(*root);
-
-            insertInNode(root, data);
+            insertInNode(&curr, data);
             struct node *newNode = (struct node *) malloc(sizeof(struct node));
             int i, tmp = -1;
             int mid = MINDIG;
-printf("5\n");
 
             //shift all pointers to new node
-            for (i = mid; i < MAXPTRS; i++) {
+            for (i = mid; i <= MAXPTRS; i++) {
                 ++tmp;
-                newNode->ptr[tmp] = (*root)->ptr[i];
-                (*root)->ptr[i] = NULL;
+                newNode->ptr[tmp] = curr->ptr[i];
+                curr->ptr[i] = NULL;
             }
-printf("6\n");   
+
             tmp = -1;
             //shift keys to new node
-            for (i = mid+1; i < MAXKEYS; i++) {
+            for (i = mid+1; i <= MAXKEYS; i++) {
                 ++tmp;
-                newNode->key[tmp] = (*root)->key[i];
-                (*root)->key[i] = -1;
+                newNode->key[tmp] = curr->key[i];
+                curr->key[i] = -1;
             }
-printf("7\n");
 
-            (*root)->count = MINDIG;
+            curr->count = MINDIG;
             newNode->count = tmp + 1;
 
-            printf("key: %d\n", (*root)->key[MINDIG-1]);
-
             // insert into a parent node
-            insert(&par, (*root)->key[MINDIG-1]);
-            int tmp1 = newSearchIndex(par, (*root)->key[MINDIG-1]);
+            insert(&par, curr->key[MINDIG]);
+            int tmp1 = newSearchIndex(par, curr->key[MINDIG]);
+            printf("tmp1 : %d\n", tmp1);
+            par->ptr[tmp1-1] = curr;
             par->ptr[tmp1] = newNode;
+
+            printf("key: %d\n", curr->key[MINDIG]);
+            printf("oldNode : \n");
+            printf("oldNode.count : %d\n", curr->count);
+            printnode(curr);
+            
+            printf("oldNode : \n");
+            printf("oldNode.count : %d\n", curr->count);
+            printnode(curr);
+
+            printf("parNode : \n");
+            printf("parNode.count : %d\n", par->count);
+            printnode(par);
+
+            *root = par;
         }
 
     }
@@ -143,7 +170,8 @@ int main(int argc, char const *argv[])
     int n = sizeof(in) / sizeof(in[0]);
     for (i = 0; i < n; i++) {
         insert(&root, in[i]);
-        printf("n : %d\n", root->count);
+        printf("r.count : %d\n", root->count);
+        printnode(root);
     }
     
     printf("Inorder : ");
