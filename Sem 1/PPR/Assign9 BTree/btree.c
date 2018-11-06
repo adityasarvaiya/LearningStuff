@@ -43,7 +43,7 @@ void printinorder(struct node *root)
 void insertInNode(struct node **root, int data) 
 {
     int i = 0, j, n = (*root)->count;
-    printf("n : %d\n", n);
+    // printf("n : %d\n", n);
 
     for (i = n-1; i >= 0; i--) {
         if ((*root)->key[i] > data) {
@@ -79,26 +79,36 @@ void insert(struct node **root, int data)
         *root = curr;
     } else {
         struct node *par = NULL;
-
+printf("1\n");
         while ((*root)->ptr[0] != NULL) {
             par = (*root);
+            
+printf("In par, %d\n", par->key[0]);
             (*root) = (*root)->ptr[newSearchIndex(*root, data)];
         }    
+printf("2\n");
 
         if ((*root)->count < (MINDIG*2 - 1)) {
             insertInNode(root, data);
+printf("3\n");
+
         } else {
+printf("4\n");
+printinorder(*root);
+
             insertInNode(root, data);
             struct node *newNode = (struct node *) malloc(sizeof(struct node));
             int i, tmp = -1;
             int mid = MINDIG;
+printf("5\n");
+
             //shift all pointers to new node
             for (i = mid; i < MAXPTRS; i++) {
                 ++tmp;
                 newNode->ptr[tmp] = (*root)->ptr[i];
                 (*root)->ptr[i] = NULL;
             }
-            
+printf("6\n");   
             tmp = -1;
             //shift keys to new node
             for (i = mid+1; i < MAXKEYS; i++) {
@@ -106,13 +116,16 @@ void insert(struct node **root, int data)
                 newNode->key[tmp] = (*root)->key[i];
                 (*root)->key[i] = -1;
             }
+printf("7\n");
 
             (*root)->count = MINDIG;
             newNode->count = tmp + 1;
 
+            printf("key: %d\n", (*root)->key[MINDIG-1]);
+
             // insert into a parent node
-            insert(&par, (*root)->key[MINDIG]);
-            int tmp1 = newSearchIndex(par, (*root)->key[MINDIG]);
+            insert(&par, (*root)->key[MINDIG-1]);
+            int tmp1 = newSearchIndex(par, (*root)->key[MINDIG-1]);
             par->ptr[tmp1] = newNode;
         }
 
@@ -130,6 +143,7 @@ int main(int argc, char const *argv[])
     int n = sizeof(in) / sizeof(in[0]);
     for (i = 0; i < n; i++) {
         insert(&root, in[i]);
+        printf("n : %d\n", root->count);
     }
     
     printinorder(root);
