@@ -169,7 +169,7 @@ void split(struct node **root, struct node **curr, struct node **par)
     for (i = mid+1; i <= MAXKEYS; i++) {
         ++tmp;
         newNode->key[tmp] = (*curr)->key[i];
-        (*curr)->key[i] = -1;
+        // (*curr)->key[i] = -1;
     }
 
     (*curr)->count = MINDIG;
@@ -177,6 +177,7 @@ void split(struct node **root, struct node **curr, struct node **par)
 
     // insert into a parent node
     int data = (*curr)->key[MINDIG];
+    printf("Data to be shifted to par : %d\n", data);
     insert(par, (*curr)->key[MINDIG], 0);
 
     findParent((*root), par, (*curr)->key[0]);
