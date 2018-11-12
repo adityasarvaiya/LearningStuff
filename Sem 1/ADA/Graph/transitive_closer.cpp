@@ -29,10 +29,19 @@ void tran_closer(int *graph, int *tc, int tot_rows, int tot_cols)
 
 }
 
+int haveWay(int *graph, int V, int s, int d, int m)
+{   
+    if (graph[s*V + m] == 1 && graph[m*V + d] == 1) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     int V;
-    int i, j, tmp;
+    int i, j, k, z, tmp;
     
     cout << "num of vertices" << endl;
     cin >> V;
@@ -51,7 +60,19 @@ int main(int argc, char const *argv[])
 
     printgraph(tc[0], V, V);
 
-    tran_closer(graph[0],tc[0], V, V);
+    // tran_closer(graph[0],tc[0], V, V);
+    for (z = 0; z < V; z++) {
+        for (k = 0; k < V; k++) {
+            for (j = 0; j < V; j++) {
+                for (i = 0; i < V; i++) {
+                    if ((tc[j][k] == 0 && (graph[i][k] == 1 && graph[k][j] == 1) ) || (i == j || graph[i][j] == 1)) {
+                        tc[i][j] = 1;
+                        tc[j][i] = 1;
+                    }
+                }
+            }
+        }
+    }
 
     cout << "Transitive closer is" << endl;
     printgraph(tc[0], V, V);
