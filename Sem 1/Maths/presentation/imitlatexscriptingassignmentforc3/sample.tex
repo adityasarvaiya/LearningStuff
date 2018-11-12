@@ -1,0 +1,151 @@
+\documentclass[11pt]{beamer}
+\usetheme{Berkeley}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\author{Group Member Names}
+\title{Enter your title here}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+\logo{\includegraphics[scale=0.25]{IIIT_logo.jpg}}
+\institute{Indian Institute of Information Technology, Allahabad} 
+\date{\today} 
+\subject{Mathematics  for  IT} 
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\section{Introduction}
+\begin{frame}{Introduction}
+\begin{block}{System of Linear Equations \cite{lay}}
+\justifying
+A linear equation in the variables $x_{1},........,x_{n}$ is an equation that can be written in the form 
+\begin{equation}
+   a_{1}x_{1} + a_{2}x_{2} + ..... + a_{n}x_{n} = b 
+\end{equation}
+where $b$ and the coefficients $a{1},.....a_{n}$ are real or complex numbers, usually known
+in advance. 
+\end{block}
+The subscript $n$ may be any positive integer.
+\end{frame}
+
+
+\subsection{Subsection 1}
+\begin{frame}{Solution of system of linear equations}
+\justifying
+The graphs of the above equations are lines, which we denote by $L_{1}$ and $L_{2}$ . A pair of numbers. $(x_{1}, x_{2})$  satisfies both equations in the system if and only if the point .x 1 ; x 2 / lies on both $L_{1}$ and $L_{1}$.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=1.5]{image1.jpg}
+    \caption{Exactly one solution}
+    \label{fig:my_label}
+\end{figure}
+\end{frame}
+
+
+
+\subsection{Subsection 2}
+\begin{frame}{Matrix Notation}
+The essential information of a linear system can be recorded compactly in a rectangular
+array called a matrix. Given the system
+\[\begin{array}{c}
+x_{1}-2x_{2}+x_{3}=0 \\
+2x_{2}-8x_{3} = 8  \\
+5x_{1}-5x_{3}=10
+\end{array}\]
+\pause
+with the coefficients of each variable aligned in columns, the matrix \\
+\begin{center}
+    $\begin{bmatrix}
+1 & -2 & 1\\
+0 & 2 & -8\\
+5 & 0 & -5
+\end{bmatrix}$
+\end{center}
+\end{frame}
+
+\section{Concepts}
+\begin{frame}{Conditional Probability}
+\textbf{Solved Examples} \\ \newline
+\justifying
+A family has two children. What is the conditional probability that both are boys given that at least one of them is a boy?  \vspace{2mm} Let the sample space $S$ be $S=\{(b, b),(b, g),(g, b),(g, g)\}$, and all outcomes are equally likely. ($(b, g)$ means, for instance, that the older child is a boy and the younger child a girl.) \newline
+
+\end{frame}
+\subsection{Subsection 1}
+\begin{frame}{Conditional Probability}
+\textbf{Solution} \newline
+\justifying
+Letting B denote the event that both children are boys, and A the event that at least one of them is a boy, then the desired probability is given by
+\begin{equation}
+    P(A|B) = \frac{P(AB)}{P(B)}
+\end{equation}
+\begin{equation}
+     = \frac{P(\{(b, b)\})}{P(\{(b, b), (b, g), (g, b)\})}
+\end{equation}
+\begin{equation}
+     = \frac{\frac{1}{4}}{\frac{3}{4}} = \frac{1}{3}
+\end{equation}
+\end{frame}
+\subsection{Subsection 2}
+\begin{frame}{Poisson Random Variable \cite{ross}}
+\begin{block}{Definition}
+A random variable $X$, taking on one of the values $0, 1, 2, . . . ,$ is said to be a Poisson random variable with parameter $\lambda$, if for some $\lambda > 0$,
+\begin{equation}
+    p(i) = P{X = i} = e^{−\lambda} \frac{\lambda^{i}}{i!} \hspace{10mm} i = 0, 1, . . .
+\end{equation}
+\justifying
+\end{block}
+\pause
+An important property of the Poisson random variable is that it may be used to approximate a binomial random variable when the binomial parameter $n$ is large and $p$ is small.
+\end{frame}
+
+
+
+\subsection{Subsection 3}
+\begin{frame}{Basic Probability}
+\begin{block}{Definition \cite{ross}}
+\justifying
+Consider an experiment whose sample space is $S$. For each event $E$ of the sample space $S$, we assume that a number $P(E)$ is defined and satisfies the following three
+\begin{enumerate}[<+->]
+    \item $0 \leq P(E) \leq 1$
+    \item $P(S) = 1$
+    \item For any sequence of events $E_{1} , E_{2} , . . .E_{n}$ that are mutually exclusive, that is, events for which $E_{n}E_{m} = \phi$ when $n \leq m$, then
+    \begin{equation}
+        P\Big(\cup E_{n}\Big) = \sum_{n=1}^{\infty}P(E_{n})
+    \end{equation}
+\end{enumerate}
+\end{block}
+\end{frame}
+
+
+
+
+
+\section{Problems}
+\begin{frame}{Poisson Distribution}
+\textbf{Problem} \newline
+If the number of accidents occurring on a highway each day is a Poisson random variable with parameter $\lambda = 3$, what is the probability that no accidents occur today ? \newline \vspace{5mm}
+\textbf{Solution} \newline
+\begin{center}
+    $P\{X = 0\} = \exp^{−3} \approx 0.05$
+\end{center}
+\end{frame}
+
+\section{References}
+\bibliographystyle{apa}
+ %\nocite{TitlesOn}
+\nocite{*}
+\bibliography{sample}
+
+
+
+
+\end{document}
