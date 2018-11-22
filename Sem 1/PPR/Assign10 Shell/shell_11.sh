@@ -15,9 +15,9 @@ function adds
 
 	return $(( $x - $y ))
 }
-
 	sum 7 5
-	echo "7+5 = $?"
+	z=$?
+	echo "7+5 = $z"
 
 	adds 7 5
 	echo "7-5 = $?"
