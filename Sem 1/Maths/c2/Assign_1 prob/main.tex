@@ -1,0 +1,329 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\title{Assignment 1}
+\author{Group 25}
+\begin{document}
+\maketitle
+
+\textbf{$Sol^n 1:$} \\
+
+Two dice are rolled, \\
+total possibilities = 36 \\
+probability of getting sum is 5, \\
+P(sum=5) = 4/36 \\
+P(sum=5) = 1/9 \\
+
+\textbf{$Sol^n 2:$} \\
+
+Die is rolled and coin is tossed, \\
+ Total possibility = 6 \\
+P(odd) = 3/6 = 1/2 \\
+P(head) = 1/2 \\
+p(odd $\cap$ head) = 1/4 \\
+
+\textbf{$Sol^n 3:$} \\
+
+Total = 1, 2, 3, 4, 5 \\
+
+(a) P(Odd at first time) = 3/5 \\
+
+(b) P(odd at second time) = P(even, then odd) + P(odd, then odd) \\
+= 2/5 * 3/4 + 3/5 * 2/4 \\
+= 3/10 + 3/10 \\
+= 3/5 \\
+
+(c) P(Odd, Both times) = 3/5 * 2/4 = 3/10 \\
+
+\textbf{$Sol^n 4:$} \\
+
+No. of teams  = 16 \\
+No. of rounds = 4 \\
+Matches played = 14 \\
+
+(a) P(A wins) = 5/6 * 5/6 * 5/6 * 5/6 = 625/1296 \\
+
+(b) P(A runner up) = 5/6 * 5/6 * 5/6 * 1/6 = 125/1296 \\
+
+(c) P(A reach semi Final) = 5/6 * 5/6(1/6 + 5/6 *1/6 + 5/6 * 5/6) = 25/36 \\
+
+(d) P(A out in round 2) = 5/6 * 1/6 = 5/36 \\
+
+\textbf{$Sol^n 5:$} \\
+
+3 coins tossed,\\
+
+Total Possibilities = 8 \\
+
+(a) Exactly 2 tails,\\
+
+P(T=2) = 3/8 \\
+
+(b) Atleast 1 tail, \\
+
+P(T$\geq$1) = 7/8 \\
+
+\textbf{$Sol^n 6:$} \\
+
+Two dice thrown, \\
+Total possibilities= 36 \\
+Getting a multiple of 2 on one and a multiple of 3 on the other, \\
+Total Cases = 6 \\
+
+P(S) = 6/36 = 1/6 \\
+
+\textbf{$Sol^n 7:$} \\
+
+Bolts = 50, Rusted Bolts = 25 \\
+Nuts = 150, Rusted Nuts = 75 \\
+P(Rusted) = 100/200 = 1/2 \\
+P(Bolt) = 50/200 = 1/4 \\
+P(Rusted $\cap$ Bolt) = 25/200 = 1/8 \\
+
+P(Rusted $\cup$ Bolt) = P(Rusted) + P(Bolt) - P(Rusted $\cap$ Bolt) \\
+
+P(Rusted $\cup$ Bolt) = 1/2 + 1/4 - 1/8 = 5/8 \\
+\\
+\\
+\\
+
+\textbf{$Sol^n 8:$} \\
+
+Total = 200 (1.....200) \\
+
+Divisible by 6 or 8 
+\\
+
+P(Divisible by 6) = 33/200 \\
+P(Divisible by 8) = 25/200 \\
+P(Divisible by 6 and 8) = 8/200 \\
+
+P(Divisible by 6 $\cup$ by 8) = P(/6) + P(/8) - P(/6 $\cap$ /8) \\
+
+P(Divisible by 6 $\cup$ by 8) = 33/200 + 25/200 - 8/200 = 1/4 \\
+
+\textbf{$Sol^n 9:$} \\
+
+Two dice are rolled, \\
+Neither divisible by 3 nor 4 \\
+Total Possibilities = 16 \\
+
+P(not 3 $\cap$ not 4) = 1 - P(3 $\cup$ 4) $^c$ \\
+= 1 - 20/36 = 16/36 \\
+
+\textbf{$Sol^n 10:$} \\
+
+Die is rolled twice \\
+Total Possibilities =  36 \\
+
+(a) Getting an even no in the first time or a total of 8 \\
+let, E = Even no in first time \\
+P(E) = 18/36 = 1/2 \\
+
+F = Total of 8 \\
+
+P(F) = 5/36 \\
+
+P(E $\cap$ F) = 3/36 \\
+
+P(E $\cup$ F) = P(E) + P(F) - P(E $\cap$ F) \\
+= 18/36 + 5/36 - 3/36 = 5/9 \\
+
+(b) Getting an even no in first time and a total of 8) \\
+
+P(E $\cap$ F) = 3/36 \\
+
+\textbf{$Sol^n 11:$} \\
+
+Rolling 6 sided Die thrice, \\
+
+P(Getting different number each time) = 6/6 * 5/6 * 4/6 = 5/9 \\
+\\
+
+\textbf{$Sol^n 12:$} \\
+
+Total Cases = 20 \\
+
+Let E = No. of die in left hand is greater than sum of no of die in right hand \\
+
+P(E) = 20/216 = 5/54 \\
+\\
+
+\textbf{$Sol^n 13:$} \\
+
+Red = 5, Blue = 6, Green = 8 \\
+
+Set of 3 balls is randomly selected, \\
+
+(a) Getting of same color, \\
+
+With replacement \\
+
+= ($^5C_3$ * $^6C_3$ * $^8C_3$)/$^{19}C_3$ \\
+
+without replacement \\
+
+= (5*4*3 + 6*5*4 + 8*7*6)/$^{19}C_3$ \\
+
+(b) Getting of different color, \\
+
+With replacement \\
+
+= (5*6*8)/$^{19}C_3$ \\
+
+without replacement \\
+
+= ($^5C_1$ * $^6C_1$ * $^8C_1$)/19 \\
+\\
+\\
+\\
+
+\textbf{$Sol^n 14:$} \\
+
+Die is rolled 6 times, \\
+
+Total possibilities  = 6$^4$ \\
+
+six comes up atleast once \\
+
+P(6$\geq$1) = 1- atmost once \\
+
+= 1 - [P(0) + P(1)] \\
+
+= 1 - [(5/6)$^4$] \\
+\\
+
+\textbf{$Sol^n 15:$} \\
+
+P(female) = 0.52 \\
+
+P(CS) = 0.05 \\
+
+P(W $\cup$ CS) = 0.02 \\
+
+(a) Female, given majoring in CS \\
+
+P(F|CS) = P(F $\cap$ CS) / P(CS) = 0.02/0.05 = 2/5 \\
+
+(b) Majoring in CS, given Female \\
+
+P(CS|F) = P(F $\cap$ CS) / P(F) = 0.02/0.52 = 2/52 \\ \\
+
+
+\textbf{$Sol^n 16:$} \\
+
+A contains 4 red and 3 black, B contains 5 Red and 4 Black, C contains 4 Red and 4 black \\
+
+Total Balls = 24 \\
+
+Probability of 3 balls(2 Red, 1 Black) \\
+
+= (4/7*5/9*4/8) + (4/7*4/9*4/8) + (3/7*5/9*4/8) \\
+
+= (80 + 64 + 60) / 504 = 204/504 = 51/126 \\
+\\
+
+\textbf{$Sol^n 17:$} \\
+
+Coin is tossed until head occurs for the first time, \\
+
+Probability that No. of tosses required is odd \\
+
+= 1 + 3 + 5 +....... \\
+
+= H + TTH + TTTTH + ......... \\
+
+= 1/2 + (1/2)$^3$ + (1/2)$^5$ +...
+Infinite G.P. Series, \\
+
+= (1/2) / (1-1/4) \\
+
+= (1/2)/(3/4) = 2/3 \\\\
+\\
+\textbf{$Sol^n 18:$} \\ \\
+Let, Probabiltiy of Saurabh's success = p(E) \\
+Probability of Mangesh's success = P(F) \\ \\
+P(E) = 1/3, P(E$^c$) = 2/3 \\
+P(F) = 1/5, P(F$^c$) = 4/5 \\ \\
+1.) Only 1 of them is selected, \\\\
+= P(E)*P(F$^c$) + P(E$^c$)*P(F)\\
+= (1/3)*(4/5) + (2/3)*(1/5) = 2/5 \\\\
+2.) Both Selected \\\\
+P(E $\cup$ F) = (1/3)*(1/5) = 1/15 \\\\
+3.) Atleast One \\\\
+P(E$\cap$F) = P(E) + P(F) - P(E $\cup$ F) \\
+= (1/3) + (1/5) - (1/15) \\
+= 7/15\\\\
+\textbf{$Sol^n 19:$} \\ \\
+P(A) = 1/3, P(B) = 2/7, P(c) = 3/8 \\
+P(A$^c$) = 2/3, P(B$^c$) = 5/7, P(C$^c$) = 5/8 \\\\
+Only one of them will solve it, \\\\
+= P(A) P(B$^c$) P(C$^c$) + P(A$^c$) P(B) P(C$^c$) + P(A$^c$) P(B$^c$) P(C) \\\\
+= (1/3)*(5/7)*(5/8) + (2/3)*(2/7)*(5/8) + (2/3)*(5/7)*(3/8) \\\\
+= (25+20+30)/(3*7*8)\\\\
+= 25/26 \\\\
+\textbf{$Sol^n 20:$} \\ \\
+P(X) = 0.60, P(Y) = 0.40 \\
+According to Baye's Theorem, \\\\
+= (0.4*0.78)/(0.6*0.96 + 0.4*0.78) \\
+= 312/888 = 39/111 \\\\
+\textbf{$Sol^n 21:$} \\ \\
+Total 10 people seated around a circular table,\\
+Two particular always sit together,\\\\
+For circular arrangement, Possible combination = (n-1)! \\\\
+P(E) = (2! * (n-2)!)/(n-1)! \\
+= (2! * 8!)/9! = 2/9 \\\\
+\textbf{$Sol^n 23:$} \\ \\
+Store(A, B, C) have employees(50, 75, 100) and women(.25, .45, .70) \\\\
+P(Women and Works in C) = (70/100) / (25/50 + 45/75 + 70/100) \\\\
+= (7/10) / (5/10 + 6/10 + 7/10) \\
+= 7/18\\\\
+\textbf{$Sol^n 24:$} \\ \\
+P(X) = 0.7, P(Y) = 0.5, P(X$^c$) = 0.3, P(Y$^c$) = 0.5 \\\\
+P(X$\cup$) = 1 - P(X$^c$ $\cap$ Y$^c$)\\
+= 1 - 0.60 \\
+= 0.40\\\\
+P(X $\cap$ Y) = P(X) + P(Y) - P(X$\cup$)\\
+= 0.7 + 0.5 - 0.4 \\
+= 0.8 \\\\
+\textbf{$Sol^n 25:$} \\ \\
+P(Gun hits plane) = P(1) + P(1$^c$).P(2)+P(1$^c$)P(2$^c$).P(3) + P(1$^c$).P(2$^c$).P(3$^c$).P(4) \\\\
+= 0.4 + 0.6*0.3 + 0.6*0.7.0.2 + 0.6*0.7*0.8*0.1 \\
+= 4/10 + 18/100 + 84/1000 + 336/10000 \\\\
+= 6976/10000 \\
+= 0.6976 \\\\
+\textbf{$Sol^n 26:$} \\ \\
+A has 5 Black and 3 White and B has 4 Black and 4 white balls. \\\\
+To make composition of A equal to B, transfer 1B ball from A to B and then transfer 1W from A to B. \\\\
+P(E) = (5/8)*(4/9)\\
+= 5/18 \\\\
+\textbf{$Sol^n 27:$} \\ \\
+REMAINS \\
+Vowels = 3 \\
+Position for Vowels = 4\\\\
+
+Ways Vowels occurs at Odd places = $^4C_3$ * 3! * 4! \\
+= 4*6*24\\
+= 576\\\\
+\textbf{$Sol^n 28:$} \\ \\
+RAINBOW \\\\
+All vowels together = 3! * 5! \\
+= 6*120 = 720 \\\\
+\textbf{$Sol^n 29:$} \\ \\
+A failing = 0.07 \\
+B failing = 0.10 \\
+C failing = 0.05 \\\\
+a) P(All work correctly) = (93/100)*(90/100)*(95/100) \\\\
+b) P(All fail) = (7*10*5)/(100*100*100)\\
+= 35/10$^5$\\\\
+c) P(Only one operates correctly) = (93*10*5)/10$^6$ + (7*90*5)/10$^6$ + (95*10*7)/10$^6$ \\\\
+d) P(atleast one Opearte correctly) = 1 - P(No one operates correctly) \\
+= 1 - 35/10$^5$ \\\\
+\textbf{$Sol^n 30:$} \\ \\
+E = Second card will be ace if first card is king\\\\
+P(E) = (4/52)*(4/51) \\
+= 4/663 \\\
+
+\end{document}

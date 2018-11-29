@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+\title{assignment 4}
+\author{Group 25}
+\date{November 2018}
+
+\begin{document}
+
+\maketitle
+
+Solution 1:
+
+Let X denote the no. of DVD players in the sample.
+
+i) P$\left ( X <= 1 \right )$ given  n=12, p=0.2
+
+P$\left ( X <= 1 \right )= P\left ( X=0 \right ) + P\left ( X=1 \right )$ 
+
+$= \binom{12}{0} \left ( 0.2 \right )^0 \left ( 0.8 \right )^{12} + \binom{12}{1}\left ( 0.2 \right )^1\left ( 0.8 \right )^{11}$
+
+$0.069 + 0.206$
+
+$0.275$
+
+
+ii) P$\left ( X > 1 \right )$ given  n=12, p=0.1
+
+$= 1-P\left ( X<=1 \right )$
+
+$=1-\left [ P\left ( X=0 \right )+P\left ( X=1 \right ) \right ]$
+
+$=1-\left [ \binom{12}{0} \left ( 0.1 \right )^0 \left ( 0.9 \right )^{12} + \binom{12}{1}\left ( 0.1 \right )^1\left ( 0.9 \right )^{11} \right ]$
+
+$1-\left [ 0.659 \right ]$
+
+$0.341$\\
+
+Solution 2:
+
+Poisson random variable
+
+$\lambda = 5 $ $hits/second$
+
+i) $\lambda = 5*2=10$
+
+$P\left ( X=k \right ) = e^{-\lambda }\lambda ^{k}/k!$
+
+$P\left ( X=0 \right ) = e^{-10}10^{0}/0! $
+
+$= e^{-10}$
+
+ii) $\lambda = 5$
+
+$P\left ( X>=1 \right ) = 1- P\left ( X=0 \right )$
+
+$= $ $1-\left ( e^{-5}5^{0} \right )/0!$
+
+$=$ $ 1-e^{-5}$\\
+
+Solution 3:
+
+Geometric random variable
+
+i) Pmf for r.v. 'Y'
+
+$P_Y\left ( k \right )= p\left ( 1-p \right )^{k-1}$ for $k>=1$
+
+$p\left ( A \right )=0.95, p\left ( 
+C \right ) =0.15$
+
+
+$E\left [ Y  \right ] = \frac{1}{p}$
+
+for A, $ E\left [ Y \right ] = \frac{1}{0.95} $
+
+for C, $E\left [ Y \right ] = \frac{1}{0.15}$
+
+$=$ $6.6666$\\
+
+Solution 4:
+Average rate $\lambda = 1.8$
+
+$P\left ( X=x \right ) = \frac{e^{-\lambda }\lambda ^x}{x!}$
+
+i) probability of occurring 4 births,
+
+$P\left ( x=4 \right ) = \frac{e^{-1.8}1.8^4}{4!}$
+
+$\frac{0.1653*10.4976}{24}$
+
+$=$ $0.0723$
+
+ii) occurring more than or equal to 2 births
+
+$=$ $P\left ( X>=2 \right ) = P\left ( X=2 \right ) + P\left ( X=3 \right ) + ....$
+
+$=$ $1-P\left ( X<2 \right )$
+
+$=$ $1-\left [ P\left ( X=0 \right ) + P\left ( X=1 \right )\right ]$
+
+$=$ $1-\left [ \frac{e^{-1.8}1.8^0}{0!}  + \frac{e^{-1.8}1.8^1}{1!}\right ]$
+
+$=$ $0.537$\\
+
+Solution 5:
+Let 1 unit of distance be 1000 miles.
+
+on an average, one battery failure over 10 units of distance.
+
+$\lambda = \frac{1}{10}$
+
+$P\left ( remaininglifetime > 5 \right ) = 1-P\left ( X=5 \right )$
+
+$=$ $e^{-5\lambda }$
+
+$=$ $e^{\frac{5}{10} }$
+
+$=$ $0.604$
+
+
+
+
+\end{document}
