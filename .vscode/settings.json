@@ -12,5 +12,6 @@
         "string_view": "cpp",
         "valarray": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "python.linting.pylintEnabled": false
 }
