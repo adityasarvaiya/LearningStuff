@@ -2,6 +2,9 @@
 #download whole playlist from terminal
 sudo apt-get install youtube-dl
 for more info type man youtube-dl, info youtube-dl and help youtube-dl in terminal
+
+    #will skip particular video if any error occurs and will continue downloading further instead of stopping 
+    youtube -i <PLAYLIST_URL>
     
     $ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc
     youtube-dl test video ''_ä↭𝕐.mp4    # All kinds of weird characters
