@@ -1,3 +1,14 @@
+#open through ssh
+#steps for system you want to access remotely
+1) sudo apt install openssh-server
+2) sudo service ssh start
+
+# steps for system you will access above system from
+1) ssh username@ip_address    ==> ssh shadow221@....
+or
+1) ssh username@ip_address --ip ip_address --port 8888
+with second way you can access jupyter notebook directly from the browser by typing
+ip_address:8888
 
 #download whole playlist from terminal
 sudo apt-get install youtube-dl
